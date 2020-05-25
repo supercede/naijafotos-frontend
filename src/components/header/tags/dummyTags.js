@@ -1,0 +1,17 @@
+export const tags = [
+  'friends',
+  'people',
+  'love',
+  'happy',
+  'marry',
+  'grass',
+  'growth',
+  'eggs',
+  'school',
+  'travel',
+  'technology',
+  'architecture',
+  'animals',
+  'outdoor',
+  'indoor',
+];

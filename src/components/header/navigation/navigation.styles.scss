@@ -1,0 +1,54 @@
+$screen-md-min: 768px;
+$screen-sm-min: 576px;
+
+@mixin md-max {
+  @media (max-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin sm-max {
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+.nav-wrapper {
+  padding: 0;
+
+  @include sm-max {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo {
+    height: 75px;
+    width: auto;
+  }
+
+  .profile {
+    border-left: 1px solid rgba(211, 211, 211, 0.5);
+
+    @include md-max {
+      border-left: 0;
+    }
+
+    button {
+      margin: 0 10px;
+
+      @include sm-max {
+        margin: 0;
+        width: 30%;
+        min-width: 100px;
+        // display: flex;
+        // margin: 10px 5px;
+      }
+    }
+
+    .avatar {
+      height: 45px;
+      width: 45px;
+      display: inline-block;
+      display: none;
+    }
+  }
+}

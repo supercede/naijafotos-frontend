@@ -1,0 +1,34 @@
+.subhead {
+  display: flex;
+  //   background-color;
+
+  &__item {
+    display: flex;
+    padding: 3px;
+
+    &--nav {
+      list-style: none;
+    }
+
+    &.tags {
+      overflow: auto;
+      white-space: nowrap;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+  .tags-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .margin {
+    width: 1px;
+    background-color: #d1d1d1;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    // flex-shrink: 0;
+  }
+}

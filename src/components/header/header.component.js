@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className='header'>
       <Navigation />
-      <div className='tags'>
+      <div className='tags-div'>
         <Tags />
       </div>
     </div>

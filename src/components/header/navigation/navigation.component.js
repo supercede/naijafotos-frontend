@@ -19,15 +19,17 @@ function Navigation() {
 
   const toggleNav = () => setIsOpen(!isOpen);
   return (
-    <Navbar className='nav-wrapper' expand='sm'>
+    <Navbar light className='nav-wrapper' expand='sm'>
       <div className='container-fluid'>
         {/* <div className='logo-wrapper'> */}
         <NavbarBrand>
           <img src={logo} alt='logo' className='logo' />
         </NavbarBrand>
         {/* </div> */}
-        <NavbarToggler onClick={toggleNav} />
-        <Collapse navbar isOpen={isOpen}>
+        <NavbarToggler onClick={toggleNav} className='nav-toggle'>
+          <span className='navbar-toggler-icon'></span>
+        </NavbarToggler>
+        <Collapse navbar isOpen={isOpen} className='mb-3'>
           <div className='search flex-grow-1 d-none d-md-block'>
             <SearchBar />
           </div>

@@ -1,6 +1,5 @@
 .subhead {
   display: flex;
-  //   background-color;
 
   &__item {
     display: flex;
@@ -20,7 +19,6 @@
     }
   }
   .tags-wrapper {
-    position: relative;
     overflow: hidden;
   }
 
@@ -29,6 +27,5 @@
     background-color: #d1d1d1;
     margin-top: 12px;
     margin-bottom: 12px;
-    // flex-shrink: 0;
   }
 }

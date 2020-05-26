@@ -1,11 +1,11 @@
 import React from 'react';
-import { Nav, Navbar, NavLink, NavItem } from 'reactstrap';
+import { NavLink, NavItem } from 'reactstrap';
 import { tags } from './dummyTags';
 import './tag.style.scss';
 
 function Tags() {
   return (
-    <div className='subhead'>
+    <div className='subhead mt-sm-0'>
       <div className='content subhead__item'>
         <NavItem className='subhead__item--nav'>
           <NavLink href='#a'>All</NavLink>

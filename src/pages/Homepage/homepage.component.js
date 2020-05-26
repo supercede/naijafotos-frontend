@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from '../../components/header/header.component';
 import { Jumbotron } from 'reactstrap';
-import './homepage.style.scss';
 import SearchBar from '../../components/header/search/search.component';
+import Photo from '../../components/header/photo/photo.component';
+import './homepage.style.scss';
 
 function Homepage() {
   return (
@@ -24,6 +25,9 @@ function Homepage() {
           </div>
         </div>
       </Jumbotron>
+      <div className='img-wrapper container-fluid'>
+        <Photo />
+      </div>
     </>
   );
 }

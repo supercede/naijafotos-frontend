@@ -13,6 +13,14 @@ $screen-sm-min: 576px;
   }
 }
 
+.nav-link {
+  color: black;
+}
+
+.nav-item a {
+  text-decoration: none;
+}
+
 .nav-wrapper {
   padding: 0;
 
@@ -39,8 +47,6 @@ $screen-sm-min: 576px;
         margin: 0;
         width: 30%;
         min-width: 100px;
-        // display: flex;
-        // margin: 10px 5px;
       }
     }
 

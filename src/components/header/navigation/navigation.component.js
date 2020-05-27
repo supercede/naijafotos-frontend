@@ -22,11 +22,8 @@ function Navigation() {
   return (
     <Navbar light className='nav-wrapper' expand='sm'>
       <div className='container-fluid'>
-        {/* <div className='logo-wrapper'> */}
         <Link to='/'>
-          {/* <NavbarBrand as={Link} to='/'> */}
           <img src={logo} alt='logo' className='logo' />
-          {/* </NavbarBrand> */}
         </Link>
         {/* </div> */}
         <NavbarToggler onClick={toggleNav} className='nav-toggle'>

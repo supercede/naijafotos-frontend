@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SearchBar from '../search/search.component';
 import logo from '../../../assets/images/naijafotos-logo.png';
 import avatar from '../../../assets/images/avatar.jpg';
@@ -22,9 +23,11 @@ function Navigation() {
     <Navbar light className='nav-wrapper' expand='sm'>
       <div className='container-fluid'>
         {/* <div className='logo-wrapper'> */}
-        <NavbarBrand>
+        <Link to='/'>
+          {/* <NavbarBrand as={Link} to='/'> */}
           <img src={logo} alt='logo' className='logo' />
-        </NavbarBrand>
+          {/* </NavbarBrand> */}
+        </Link>
         {/* </div> */}
         <NavbarToggler onClick={toggleNav} className='nav-toggle'>
           <span className='navbar-toggler-icon'></span>
@@ -35,7 +38,9 @@ function Navigation() {
           </div>
           <Nav navbar className='ml-0 ml-md-3 mr-auto'>
             <NavItem>
-              <NavLink href='#a'>Home</NavLink>
+              <NavLink as={Link} to='/'>
+                Home
+              </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href='#b'>Collections</NavLink>
@@ -48,7 +53,9 @@ function Navigation() {
               </Button>
             </NavItem>
             <NavItem>
-              <Button className='btn-success mt-3 mt-sm-0'>Join</Button>
+              <Link to='/signup'>
+                <Button className='btn-success mt-3 mt-sm-0'>Join</Button>
+              </Link>
             </NavItem>
 
             {/* <div className='profile-image'> */}

@@ -1,0 +1,70 @@
+$screen-md-min: 768px;
+$screen-sm-min: 576px;
+
+@mixin md-max {
+  @media (max-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin sm-max {
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+.auth-wrapper {
+  border: 1px solid lightgray;
+  padding: 50px;
+  position: relative;
+  border-radius: 5px;
+  margin-top: 5vh;
+  max-width: 700px;
+
+  @include md-max {
+    width: 90%;
+  }
+
+  .auth-nav {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    position: absolute;
+    // padding-left: inherit;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    // color: white;
+
+    .field {
+      flex-basis: 50%;
+      text-align: center;
+      cursor: pointer;
+      height: 3rem;
+      line-height: 3rem;
+      // background-color: red;
+      // background-color: lightgray;
+      vertical-align: middle;
+      font-size: 1.3rem;
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      // width: 100%;
+    }
+  }
+
+  .sign-in,
+  .sign-up {
+    margin-top: 15px;
+  }
+
+  .active {
+    background-color: #555555;
+
+    .context {
+      color: #fff;
+    }
+  }
+}

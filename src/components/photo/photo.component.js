@@ -1,9 +1,9 @@
 import React from 'react';
-import imgOne from '../../../assets/images/img-one.jpg';
-import imgTwo from '../../../assets/images/img-two.jpg';
-import imgThree from '../../../assets/images/img-three.jpg';
-import imgFour from '../../../assets/images/img-four.jpg';
-import imgFive from '../../../assets/images/img-five.jpg';
+import imgOne from '../../assets/images/img-one.jpg';
+import imgTwo from '../../assets/images/img-two.jpg';
+import imgThree from '../../assets/images/img-three.jpg';
+import imgFour from '../../assets/images/img-four.jpg';
+import imgFive from '../../assets/images/img-five.jpg';
 import './photo.style.scss';
 
 const images = [imgOne, imgTwo, imgThree, imgFour, imgFive];

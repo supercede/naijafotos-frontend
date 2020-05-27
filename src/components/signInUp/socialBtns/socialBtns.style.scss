@@ -1,0 +1,69 @@
+$screen-md-min: 768px;
+$screen-sm-min: 576px;
+
+@mixin md-max {
+  @media (max-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin sm-max {
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+.social-btns {
+  display: flex;
+  // flex-direction: column;
+  margin: 20px;
+
+  @include md-max {
+    flex-direction: column;
+  }
+
+  .social-btn {
+    display: block;
+    // width: 200px;
+    margin: 10px;
+    position: relative;
+    flex-basis: 50%;
+    // color: #000;
+
+    &.google-btn {
+      background-color: #4c8bf5;
+      color: #fff;
+
+      &:hover {
+        background-color: red;
+        color: white;
+
+        .google-logo {
+          background-color: #fff;
+        }
+
+        .facebok-logo {
+          color: #fff;
+        }
+      }
+    }
+
+    .logo {
+      position: absolute;
+      top: 0;
+      left: 1px;
+      padding: 7px;
+      display: inline-block;
+      height: 100%;
+
+      &.google-logo {
+        background-color: #fff;
+      }
+    }
+
+    .logo-text {
+      display: inline-block;
+      margin-left: 10%;
+    }
+  }
+}

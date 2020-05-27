@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../components/header/header.component';
 import { Jumbotron } from 'reactstrap';
 import SearchBar from '../../components/header/search/search.component';
-import Photo from '../../components/header/photo/photo.component';
+import Photo from '../../components/photo/photo.component';
 import './homepage.style.scss';
 
 function Homepage() {

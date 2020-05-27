@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
@@ -8,9 +9,11 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   // <React.StrictMode>
-  <App />,
-  // </React.StrictMode>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('root')
+  // </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change

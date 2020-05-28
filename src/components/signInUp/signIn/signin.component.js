@@ -1,9 +1,10 @@
 import React from 'react';
 import * as Yup from 'yup';
-import { withFormik, Form, Field } from 'formik';
-import { Button, Row, Label } from 'reactstrap';
+import { withFormik, Form } from 'formik';
+import { Button, Row } from 'reactstrap';
 import SocialButtons from '../socialBtns/socialBtns.component';
 import './signin.style.scss';
+import FormControl from '../form-row.component';
 
 function SignInForm({ errors, touched, isSubmitting }) {
   return (
@@ -12,25 +13,20 @@ function SignInForm({ errors, touched, isSubmitting }) {
       {/* <h6 className='text-center'></h6> */}
       <SocialButtons action='Sign in' />
       <Form className='form'>
-        <Row className='form-group'>
-          <Label htmlFor='email'>Username/Email</Label>
-          <Field type='text' className='form-control' name='email' id='email' />
-          {touched.email && errors.email && (
-            <p className='warning-text'>{errors.email}</p>
-          )}
-        </Row>
-        <Row className='form-group'>
-          <Label htmlFor='password'>Password</Label>
-          <Field
-            type='password'
-            className='form-control'
-            name='password'
-            id='password'
-          />
-          {touched.password && errors.password && (
-            <p className='warning-text'>{errors.password}</p>
-          )}
-        </Row>
+        <FormControl
+          title='Username/Email'
+          touched={touched}
+          errors={errors}
+          name='email'
+          type='text'
+        />
+        <FormControl
+          title='Password'
+          touched={touched}
+          errors={errors}
+          name='password'
+          type='password'
+        />
         <Row>
           <Button
             type='submit'

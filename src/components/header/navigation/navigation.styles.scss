@@ -22,7 +22,7 @@ $screen-sm-min: 576px;
 }
 
 .nav-wrapper {
-  padding: 0;
+  padding: 0.5rem 1rem;
 
   @include sm-max {
     padding: 0.5rem 1rem;

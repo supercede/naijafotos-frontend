@@ -1,0 +1,27 @@
+.interests {
+  //   display: inline-block;
+
+  .interest {
+    flex-wrap: wrap;
+    display: inline-block;
+    padding: 3px 5px;
+    background-color: #444;
+    margin-right: 10px;
+    border-radius: 3px;
+
+    & a {
+      color: white;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: #fff;
+
+      & a {
+        color: #444;
+        text-decoration: underline;
+      }
+    }
+  }
+  //   font-size: 3rem;
+}

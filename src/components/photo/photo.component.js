@@ -8,9 +8,9 @@ import './photo.style.scss';
 
 const images = [imgOne, imgTwo, imgThree, imgFour, imgFive];
 
-function Photo() {
+function Photo({ count = 25 }) {
   const photoArr = [];
-  for (let i = 1; i <= 25; i++) {
+  for (let i = 1; i <= count; i++) {
     photoArr.push(
       <figure className='img-brick' key={i}>
         <img src={images[i % 5]} alt='placeholder img' />

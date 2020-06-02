@@ -49,14 +49,8 @@ function Content({ category = '' }) {
         <TabHeader
           activeTab={activeTab}
           toggle={toggle}
-          title='Interests'
-          number='4'
-        />
-        <TabHeader
-          activeTab={activeTab}
-          toggle={toggle}
           title='Following'
-          number='5'
+          number='4'
         />
       </Nav>
       <TabContent activeTab={activeTab}>

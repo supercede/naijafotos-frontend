@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { withFormik, Form } from 'formik';
 import { Button, Row } from 'reactstrap';
 import SocialButtons from '../socialBtns/socialBtns.component';
-import FormControl from '../form-row.component';
+import FormControl from '../../shared/formControl/form-row.component';
 import './signup.style.scss';
 
 function SignUpForm({ errors, touched, isSubmitting }) {

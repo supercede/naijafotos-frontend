@@ -3,6 +3,7 @@ import avatar from '../../assets/images/avatar.jpg';
 import Interests from './interest/interest.component';
 import { Button } from 'reactstrap';
 import Content from './content/content.collection';
+import { Link } from 'react-router-dom';
 import './profile.style.scss';
 
 function Profile() {
@@ -24,9 +25,11 @@ function Profile() {
           </p>
           <p className='text-muted'>Interests</p>
           <Interests />
-          <Button outline className='btn-outline-success mt-3'>
-            Edit Profile
-          </Button>
+          <Link to='/editprofile'>
+            <Button outline className='btn-outline-success mt-3'>
+              Edit Profile
+            </Button>
+          </Link>
         </div>
       </div>
       <div>

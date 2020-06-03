@@ -25,7 +25,7 @@ function Profile() {
           </p>
           <p className='text-muted'>Interests</p>
           <Interests />
-          <Link to='/editprofile'>
+          <Link to='/edit-profile'>
             <Button outline className='btn-outline-success mt-3'>
               Edit Profile
             </Button>

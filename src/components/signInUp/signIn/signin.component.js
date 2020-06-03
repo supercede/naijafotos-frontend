@@ -49,6 +49,7 @@ const SignIn = withFormik({
     email: Yup.string().required('Email or Username is required'),
     password: Yup.string()
       .min(8)
+      .max(40, 'Password cannot be more than 40 letters')
       .required(),
   }),
   handleSubmit(values) {

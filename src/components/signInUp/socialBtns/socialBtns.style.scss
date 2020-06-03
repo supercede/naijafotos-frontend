@@ -1,34 +1,18 @@
-$screen-md-min: 768px;
-$screen-sm-min: 576px;
-
-@mixin md-max {
-  @media (max-width: #{$screen-md-min}) {
-    @content;
-  }
-}
-
-@mixin sm-max {
-  @media (max-width: #{$screen-sm-min}) {
-    @content;
-  }
-}
-
+@import '../../shared/config.style.scss';
 .social-btns {
   display: flex;
-  // flex-direction: column;
   margin: 20px;
 
   @include md-max {
     flex-direction: column;
+    margin: 20px 0px;
   }
 
   .social-btn {
     display: block;
-    // width: 200px;
     margin: 10px;
     position: relative;
     flex-basis: 50%;
-    // color: #000;
 
     &.google-btn {
       background-color: #4c8bf5;
@@ -51,7 +35,7 @@ $screen-sm-min: 576px;
     .logo {
       position: absolute;
       top: 0;
-      left: 1px;
+      left: 0;
       padding: 7px;
       display: inline-block;
       height: 100%;

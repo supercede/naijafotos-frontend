@@ -4,6 +4,7 @@ import { Row, Button } from 'reactstrap';
 import avatar from '../../../../assets/images/avatar.jpg';
 import FormControl from '../../../shared/formControl/form-row.component';
 import './profileSettings.style.scss';
+import YupSignUpValidation from '../../../shared/yupValidation/yupValidation';
 
 function ProfileSettingsForm({ errors, touched, isSubmitting }) {
   return (
@@ -79,6 +80,7 @@ const ProfileSettings = withFormik({
   mapPropsToValues() {
     return { name: '', email: '', userName: '', portfolio: '', bio: '' };
   },
+  validationSchema: YupSignUpValidation('profile'),
   handleSubmit(values) {
     console.log(values);
   },

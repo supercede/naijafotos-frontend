@@ -1,17 +1,4 @@
-$screen-md-min: 768px;
-$screen-sm-min: 576px;
-
-@mixin md-max {
-  @media (max-width: #{$screen-md-min}) {
-    @content;
-  }
-}
-
-@mixin sm-max {
-  @media (max-width: #{$screen-sm-min}) {
-    @content;
-  }
-}
+@import '../shared/config.style.scss';
 
 .profile__details {
   margin: 50px auto;

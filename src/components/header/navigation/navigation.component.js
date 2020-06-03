@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink as RRNavLink } from 'react-router-dom';
 import SearchBar from '../search/search.component';
 import logo from '../../../assets/images/naijafotos-logo.png';
 import avatar from '../../../assets/images/avatar.jpg';
@@ -22,9 +22,9 @@ function Navigation() {
   return (
     <Navbar light className='nav-wrapper' expand='sm'>
       <div className='container-fluid'>
-        <Link to='/'>
+        <NavbarBrand to='/' tag={RRNavLink}>
           <img src={logo} alt='logo' className='logo' />
-        </Link>
+        </NavbarBrand>
         {/* </div> */}
         <NavbarToggler onClick={toggleNav} className='nav-toggle'>
           <span className='navbar-toggler-icon'></span>
@@ -35,7 +35,7 @@ function Navigation() {
           </div>
           <Nav navbar className='ml-0 ml-md-3 mr-auto'>
             <NavItem>
-              <NavLink as={Link} to='/'>
+              <NavLink to='/' tag={RRNavLink}>
                 Home
               </NavLink>
             </NavItem>

@@ -14,7 +14,15 @@ function App() {
         <Route path='/signup' component={() => <Authpage focus='sign-up' />} />
         <Route path='/signin' component={() => <Authpage focus='sign-in' />} />
         <Route path='/profile' component={() => <ProfilePage />} />
-        <Route path='/editprofile' component={() => <EditProfilePage />} />
+        <Route path='/edit-profile' component={() => <EditProfilePage />} />
+        <Route
+          path='/change-password'
+          component={() => <EditProfilePage action='change-password' />}
+        />
+        <Route
+          path='/close-account'
+          component={() => <EditProfilePage action='close-account' />}
+        />
         <Route path='/' component={Homepage} />
       </Switch>
     </div>

@@ -3,11 +3,11 @@ import Navigation from '../../components/header/navigation/navigation.component'
 import './editprofilepage.style.scss';
 import EditProfile from '../../components/profile/edit-profile/edit-profile.component';
 
-function EditProfilePage() {
+function EditProfilePage({ action = 'account-settings' }) {
   return (
     <>
       <Navigation />
-      <EditProfile />
+      <EditProfile action={action} />
     </>
   );
 }

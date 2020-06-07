@@ -45,9 +45,11 @@ function Navigation() {
           </Nav>
           <Nav className='profile' navbar>
             <NavItem>
-              <Button outline className='mt-1 mt-sm-0'>
-                Upload
-              </Button>
+              <Link to='/upload'>
+                <Button outline className='mt-1 mt-sm-0'>
+                  Upload
+                </Button>
+              </Link>
             </NavItem>
             <NavItem>
               <Link to='/signup'>

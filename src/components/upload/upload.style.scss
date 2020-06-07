@@ -1,0 +1,66 @@
+@import '../shared/config.style.scss';
+
+.upload {
+  &__guidelines {
+    width: 60%;
+    margin: 0 auto 30px auto;
+
+    @include md-max {
+      width: 90%;
+    }
+  }
+
+  .dropzone {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: #eeeeee;
+    border-style: dashed;
+    background-color: #fafafa;
+    color: #bdbdbd;
+    outline: none;
+    transition: border 0.24s ease-in-out;
+    cursor: pointer;
+
+    p {
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+    }
+  }
+
+  .thumb {
+    display: inline-flex;
+    border-radius: 2%;
+    border: 1px solid #eaeaea;
+    margin-bottom: 8px;
+    // margin-right: 8px;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  .thumbInner {
+    display: flex;
+    min-width: 0;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .preview {
+    display: flex;
+    align-items: center;
+  }
+}

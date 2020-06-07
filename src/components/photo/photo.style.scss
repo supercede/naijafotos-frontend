@@ -7,6 +7,7 @@
   & .img-brick {
     display: inline-block; /* Fix the misalignment of items */
     vertical-align: top; /* Keep the item on the very top */
+    position: relative;
   }
 
   & .img-brick img {
@@ -16,8 +17,58 @@
     max-width: 660px;
   }
 
-  & .img-brick:hover img {
-    opacity: 0.75;
+  & .img-brick:hover {
+    img {
+      opacity: 0.75;
+    }
+
+    .img__btns {
+      display: flex;
+    }
+  }
+
+  .img__btns {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    top: 3px;
+
+    & .up,
+    & .down {
+      display: flex;
+      justify-content: space-between;
+      margin: 3px;
+    }
+
+    & .down {
+      margin-bottom: 8px;
+    }
+
+    &--btn {
+      padding: 4px;
+      background-color: #eee;
+      margin: 2px;
+      border-radius: 2px;
+      // display: inline-block;
+
+      i {
+        color: #666;
+        // font-size: 0.9rem;
+      }
+
+      &.name {
+        background: transparent;
+        color: #eee;
+        // font-size: 0.8rem;
+      }
+    }
+
+    a {
+      color: #ddd;
+    }
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1023px) {

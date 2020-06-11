@@ -1,0 +1,124 @@
+@import '../../shared/config.style.scss';
+
+.modal-backdrop.show {
+  opacity: 0.3;
+}
+.modal {
+  &-header,
+  &-title {
+    border-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .modal-title {
+      width: 100%;
+    }
+
+    & .details {
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+
+      a {
+        color: black;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      img {
+        max-height: 40px;
+        margin-right: 5px;
+      }
+
+      p {
+        font-size: 0.7rem;
+        margin: 0;
+      }
+    }
+
+    & .action {
+      a {
+        color: grey;
+        padding: 4px 8px;
+        border: 1px solid grey;
+        border-radius: 3px;
+
+        &:hover {
+          box-shadow: 0.2px 0.3px 1px 0.2px rgba(92, 82, 92, 1);
+          border-color: black;
+        }
+      }
+
+      &--btn {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &-body {
+    img {
+      //   width: 100%;
+      margin: 0 auto;
+      display: block;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+
+      .data {
+        flex: 2;
+        margin-right: 10px;
+
+        p {
+          font-size: 0.8rem;
+        }
+      }
+
+      .interact .btn {
+        margin-right: 10px;
+      }
+    }
+
+    .btn a {
+      color: black;
+    }
+  }
+
+  &-footer {
+    justify-content: flex-start;
+  }
+
+  .close {
+    // position: absolute;
+    // // right: 0px;
+    // font-size: 2rem;
+    // top: 0;
+
+    @include sm-max {
+      display: none;
+    }
+  }
+
+  &-body {
+    overflow-y: auto;
+    max-height: calc(100vh - 50px);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  @include sm-max {
+    padding: 0px !important;
+
+    &-dialog {
+      margin: 0px;
+    }
+  }
+}

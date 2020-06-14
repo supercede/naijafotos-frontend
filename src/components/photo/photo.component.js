@@ -1,52 +1,24 @@
-import React, { useState } from 'react';
-import imgOne from '../../assets/images/img-one.jpg';
-import imgTwo from '../../assets/images/img-two.jpg';
-import imgThree from '../../assets/images/img-three.jpg';
-import imgFour from '../../assets/images/img-four.jpg';
-import imgFive from '../../assets/images/img-five.jpg';
-import imgSix from '../../assets/images/img-six.jpg';
-import imgSeven from '../../assets/images/img-seven.jpg';
-import PhotoModal from './photoModal/photoModal.component';
+import React from 'react';
 import './photo.style.scss';
+import { Link } from 'react-router-dom';
+import { images } from './photos';
 
-const images = [
-  imgOne,
-  imgTwo,
-  imgSeven,
-  imgThree,
-  imgFour,
-  imgFive,
-  imgThree,
-  imgSix,
-  imgFive,
-  imgOne,
-  imgSeven,
-  imgFour,
-  imgThree,
-  imgOne,
-  imgTwo,
-  imgSix,
-];
-
-function Photo({ count = 25 }) {
-  const [modal, setModal] = useState(false);
-  const [currentPicture, setCurrentPicture] = useState('');
-
-  const toggle = () => setModal(!modal);
-  const setPicture = (img) => setCurrentPicture(img);
-
+function Photo() {
   const photos = images.map((photo, i) => {
     return (
       <div key={i}>
-        <div
-          className='img'
-          onClick={() => {
-            toggle();
-            setPicture(photo);
-          }}
-        >
+        <div className='img'>
           <figure className='img-brick'>
-            <img src={photo} alt='placeholder img' />
+            <Link
+              to={{
+                pathname: `/photo/${photo._id}`,
+                state: {
+                  isModal: true,
+                },
+              }}
+            >
+              <img src={photo.imageURL} alt='placeholder img' />
+            </Link>
             <div className='img__btns'>
               <div className='up'>
                 <div className='left'>
@@ -66,7 +38,7 @@ function Photo({ count = 25 }) {
               <div className='down'>
                 <div className='left'>
                   <a href='a' className='img__btns--btn name'>
-                    <span className='title'>Killua Zoldyck</span>
+                    <span className='title'>{photo.user.name}</span>
                   </a>
                 </div>
                 <div className='right'>
@@ -85,17 +57,7 @@ function Photo({ count = 25 }) {
     );
   });
 
-  return (
-    <>
-      <div className='masonry mx-auto'>{photos}</div>
-      <PhotoModal
-        modal={modal}
-        className={''}
-        toggle={toggle}
-        img={currentPicture}
-      />
-    </>
-  );
+  return <div className='masonry mx-auto'>{photos}</div>;
 }
 
 export default Photo;

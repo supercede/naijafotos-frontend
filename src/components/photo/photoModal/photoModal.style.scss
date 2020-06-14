@@ -1,9 +1,13 @@
 @import '../../shared/config.style.scss';
 
-.modal-backdrop.show {
+.wrapper-backdrop.show {
   opacity: 0.3;
 }
-.modal {
+.wrapper {
+  display: block;
+  position: relative;
+  padding: 0 3rem;
+
   &-header,
   &-title {
     border-bottom: 0;
@@ -11,7 +15,11 @@
     flex-direction: row;
     justify-content: space-between;
 
-    .modal-title {
+    @include md-max {
+      margin-bottom: 5px;
+    }
+
+    .wrapper-title {
       width: 100%;
     }
 
@@ -59,7 +67,9 @@
   }
 
   &-body {
-    img {
+    max-width: 1000px;
+    margin: 0 auto;
+    &__figure--img {
       //   width: 100%;
       margin: 0 auto;
       display: block;
@@ -70,6 +80,11 @@
     .meta {
       display: flex;
       justify-content: space-between;
+
+      @include sm-max {
+        flex-direction: column;
+        margin-bottom: 1rem;
+      }
 
       .data {
         flex: 2;
@@ -95,18 +110,12 @@
   }
 
   .close {
-    // position: absolute;
-    // // right: 0px;
-    // font-size: 2rem;
-    // top: 0;
-
     @include sm-max {
       display: none;
     }
   }
 
   &-body {
-    overflow-y: auto;
     max-height: calc(100vh - 50px);
   }
 
@@ -115,7 +124,7 @@
   }
 
   @include sm-max {
-    padding: 0px !important;
+    padding: 5px !important;
 
     &-dialog {
       margin: 0px;

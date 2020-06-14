@@ -1,20 +1,30 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import avatar from '../../../assets/images/avatar.jpg';
-import './photoModal.style.scss';
+import { Button } from 'reactstrap';
+import { useParams } from 'react-router-dom';
 import Interests from '../../profile/interest/interest.component';
+import Comments from '../../comments/comments.component';
+import { images } from '../photos';
+import './photoModal.style.scss';
 
-function PhotoModal({ modal, toggle, className, img }) {
+function PhotoModal(props) {
+  const { img } = props;
+  const { id } = useParams();
+
+  const getPhoto = (id) => images.find((img) => img._id === id);
+
+  const currentImg = getPhoto(id);
+  const { user } = currentImg;
+
   return (
-    <Modal isOpen={modal} className='modal-xl' toggle={toggle}>
-      <ModalHeader toggle={toggle}>
+    <div className='wrapper mx-auto'>
+      <div className='wrapper-header'>
         <div className='details'>
           <a href='a' className='d-flex align-items-center'>
-            <img className='rounded-circle' src={avatar} alt='' />
+            <img className='rounded-circle' src={user.avatar} alt='' />
             <div className='details'>
               <p className='d-flex flex-column'>
-                <span>Killua Zoldyck</span>
-                <span>@killua10</span>
+                <span>{user.name}</span>
+                <span>{user.userName || '@killua10'}</span>
               </p>
             </div>
           </a>
@@ -30,10 +40,14 @@ function PhotoModal({ modal, toggle, className, img }) {
             <i className='fas fa-arrow-down'></i>
           </a>
         </div>
-      </ModalHeader>
-      <ModalBody>
-        <figure className='modal-body__figure'>
-          <img src={img} alt='' className='modal-body__figure--img' />
+      </div>
+      <div className='wrapper-body'>
+        <figure className='wrapper-body__figure'>
+          <img
+            src={currentImg.imageURL}
+            alt=''
+            className='wrapper-body__figure--img'
+          />
         </figure>
         <div className='meta'>
           <div className='data'>
@@ -44,10 +58,10 @@ function PhotoModal({ modal, toggle, className, img }) {
             </p>
           </div>
           <div className='interact'>
-            <Button outline>
+            <Button outline className='col-12 mb-1 col-md-5'>
               <a href='a'>Share</a>
             </Button>
-            <Button outline>
+            <Button outline className='col-12 mb-1 col-md-5'>
               <a href='a'>Info</a>
             </Button>
           </div>
@@ -58,13 +72,13 @@ function PhotoModal({ modal, toggle, className, img }) {
             <Interests />
           </div>
         </div>
-      </ModalBody>
-      <ModalFooter>
-        <div className='comments'>
+        <hr></hr>
+        <div className='comments mt-3'>
           <h2>Comments</h2>
+          <Comments />
         </div>
-      </ModalFooter>
-    </Modal>
+      </div>
+    </div>
   );
 }
 

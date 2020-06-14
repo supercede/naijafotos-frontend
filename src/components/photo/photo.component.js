@@ -1,57 +1,63 @@
 import React from 'react';
-import imgOne from '../../assets/images/img-one.jpg';
-import imgTwo from '../../assets/images/img-two.jpg';
-import imgThree from '../../assets/images/img-three.jpg';
-import imgFour from '../../assets/images/img-four.jpg';
-import imgFive from '../../assets/images/img-five.jpg';
 import './photo.style.scss';
+import { Link } from 'react-router-dom';
+import { images } from './photos';
 
-const images = [imgOne, imgTwo, imgThree, imgFour, imgFive];
-
-function Photo({ count = 25 }) {
-  const photoArr = [];
-  for (let i = 1; i <= count; i++) {
-    photoArr.push(
-      <div className='img' key={i}>
-        <figure className='img-brick'>
-          <img src={images[i % 5]} alt='placeholder img' />
-          <div className='img__btns'>
-            <div className='up'>
-              <div className='left'>
-                <a href='a' className='img__btns--btn'>
-                  <i className='fas fa-trash-alt'></i>
-                </a>
+function Photo() {
+  const photos = images.map((photo, i) => {
+    return (
+      <div key={i}>
+        <div className='img'>
+          <figure className='img-brick'>
+            <Link
+              to={{
+                pathname: `/photo/${photo._id}`,
+                state: {
+                  isModal: true,
+                },
+              }}
+            >
+              <img src={photo.imageURL} alt='placeholder img' />
+            </Link>
+            <div className='img__btns'>
+              <div className='up'>
+                <div className='left'>
+                  <a href='a' className='img__btns--btn'>
+                    <i className='fas fa-trash-alt'></i>
+                  </a>
+                </div>
+                <div className='right'>
+                  <a href='a' className='img__btns--btn'>
+                    <i className='fas fa-plus'></i>
+                  </a>
+                  <a href='a' className='img__btns--btn'>
+                    <i className='fas fa-arrow-down'></i>
+                  </a>
+                </div>
               </div>
-              <div className='right'>
-                <a href='a' className='img__btns--btn'>
-                  <i className='fas fa-plus'></i>
-                </a>
-                <a href='a' className='img__btns--btn'>
-                  <i className='fas fa-arrow-down'></i>
-                </a>
+              <div className='down'>
+                <div className='left'>
+                  <a href='a' className='img__btns--btn name'>
+                    <span className='title'>{photo.user.name}</span>
+                  </a>
+                </div>
+                <div className='right'>
+                  <a href='a' className='img__btns--btn'>
+                    <i className='fas fa-heart'></i>
+                  </a>
+                  <a href='a' className='img__btns--btn'>
+                    <i className='far fa-comment'></i>
+                  </a>
+                </div>
               </div>
             </div>
-            <div className='down'>
-              <div className='left'>
-                <a href='a' className='img__btns--btn name'>
-                  <span className='title'>Killua Zoldyck</span>
-                </a>
-              </div>
-              <div className='right'>
-                <a href='a' className='img__btns--btn'>
-                  <i className='fas fa-heart'></i>
-                </a>
-                <a href='a' className='img__btns--btn'>
-                  <i className='far fa-comment'></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </figure>
+          </figure>
+        </div>
       </div>
     );
-  }
-  return <div className='masonry mx-auto'>{photoArr}</div>;
+  });
+
+  return <div className='masonry mx-auto'>{photos}</div>;
 }
 
 export default Photo;

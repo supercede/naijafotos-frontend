@@ -6,7 +6,9 @@ import Authpage from './pages/Authpage/authpage.component';
 import ProfilePage from './pages/Profilepage/profilepage.component';
 import EditProfilePage from './pages/EditProfilepage/editProfile.componentpage';
 import ImageUploadPage from './pages/ImageUpload/imageUpload.component';
+import PhotoModal from './components/photo/photoModal/photoModal.component';
 import './App.css';
+import PhotoPage from './pages/Photopage/photopage.component';
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path='/signin' component={() => <Authpage focus='sign-in' />} />
         <Route path='/upload' component={() => <ImageUploadPage />} />
         <Route path='/profile' component={() => <ProfilePage />} />
+        <Route path='/photo/:id' render={(props) => <PhotoPage {...props} />} />
         <Route path='/edit-profile' component={() => <EditProfilePage />} />
         <Route
           path='/change-password'

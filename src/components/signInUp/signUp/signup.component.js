@@ -5,6 +5,7 @@ import SocialButtons from '../socialBtns/socialBtns.component';
 import FormControl from '../../shared/formControl/form-row.component';
 import YupSignUpValidation from '../../shared/yupValidation/yupValidation';
 import './signup.style.scss';
+import { baseURL } from '../../../shared/baseUrl';
 
 function SignUpForm({ errors, touched, isSubmitting }) {
   return (
@@ -92,6 +93,9 @@ const SignUp = withFormik({
   validationSchema: YupSignUpValidation('signup'),
   handleSubmit(values) {
     console.log(values);
+    if (values.portfolio === '') {
+      delete values.portfolio;
+    }
   },
 })(SignUpForm);
 

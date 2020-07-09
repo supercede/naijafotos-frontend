@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 // import Header from './components/header/header.component';
+import { useDispatch, useSelector } from 'react-redux';
 import Homepage from './pages/Homepage/homepage.component';
 import Authpage from './pages/Authpage/authpage.component';
 import ProfilePage from './pages/Profilepage/profilepage.component';
 import EditProfilePage from './pages/EditProfilepage/editProfile.componentpage';
 import ImageUploadPage from './pages/ImageUpload/imageUpload.component';
-import PhotoModal from './components/photo/photoModal/photoModal.component';
-import './App.css';
+import { history } from './redux/_helpers';
+import { alertActions } from './redux/_actions';
 import PhotoPage from './pages/Photopage/photopage.component';
+import PrivateRoute from './components/PrivateRoute';
+import './App.css';
 
 function App() {
+  const alert = useSelector((state) => state.alert);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    history.listen((location, action) => {
+      // clear alert on location change
+      dispatch(alertActions.clear());
+    });
+  }, []);
   return (
     <div>
       <Switch>

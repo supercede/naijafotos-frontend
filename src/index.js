@@ -6,16 +6,16 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import * as serviceWorker from './serviceWorker';
 import { store } from './redux/_helpers';
 
 ReactDOM.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    {/* <BrowserRouter> */}
+    <App />
+    {/* </BrowserRouter> */}
   </Provider>,
   document.getElementById('root')
   // </React.StrictMode>

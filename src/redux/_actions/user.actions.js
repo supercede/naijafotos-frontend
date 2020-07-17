@@ -9,7 +9,7 @@ export const userActions = {
   register,
 };
 
-function login(email, password) {
+function login({ email, password }) {
   return (dispatch) => {
     dispatch(request({ email }));
 
@@ -26,13 +26,13 @@ function login(email, password) {
   };
 
   function request(user) {
-    return { type: userConstants.LOGIN_REQUEST, user };
+    return { type: userConstants.USERS_SIGNIN_PENDING, user };
   }
   function success(user) {
-    return { type: userConstants.LOGIN_SUCCESS, user };
+    return { type: userConstants.USERS_SIGNIN_SUCCESS, user };
   }
   function failure(error) {
-    return { type: userConstants.LOGIN_FAILURE, error };
+    return { type: userConstants.USERS_SIGNIN_FAILED, error };
   }
 }
 
@@ -59,13 +59,13 @@ function register(user) {
   };
 
   function request(user) {
-    return { type: userConstants.REGISTER_REQUEST, user };
+    return { type: userConstants.USERS_SIGNUP_PENDING, user };
   }
   function success(user) {
-    return { type: userConstants.REGISTER_SUCCESS, user };
+    return { type: userConstants.USERS_SIGNUP_SUCCESS, user };
   }
   function failure(error) {
-    return { type: userConstants.REGISTER_FAILURE, error };
+    return { type: userConstants.USERS_SIGNUP_FAILED, error };
   }
 }
 

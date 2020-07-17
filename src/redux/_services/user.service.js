@@ -16,13 +16,12 @@ function login(email, password) {
 
   return fetch(`${baseURL}auth/login`, requestOptions)
     .then(handleResponse)
-    .then((user) => {
-      console.log(user);
-
+    .then((data) => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
-      //   localStorage.setItem('user', JSON.stringify(user));
+      saveToken(data.token);
+      saveUser(data.data.user);
 
-      return user;
+      return data.data.user;
     });
 }
 
@@ -63,13 +62,12 @@ function register(user) {
   };
   return fetch(`${baseURL}auth/signup`, requestOptions)
     .then(handleResponse)
-    .then((user) => {
-      console.log(user);
-
+    .then((data) => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
-      //   localStorage.setItem('user', JSON.stringify(user));
+      saveToken(data.token);
+      saveUser(data.data.user);
 
-      return user;
+      return data.data.user;
     });
 }
 
@@ -89,4 +87,12 @@ function handleResponse(response) {
 
     return data;
   });
+}
+
+function saveUser(user) {
+  localStorage.setItem('user', JSON.stringify(user));
+}
+
+function saveToken(token) {
+  localStorage.setItem('token', token);
 }

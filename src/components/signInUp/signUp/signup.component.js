@@ -96,9 +96,11 @@ const EnhancedSignUpForm = withFormik({
   validationSchema: YupSignUpValidation('signup'),
   handleSubmit(values, { props }) {
     if (values.portfolio === '') {
-      delete values.portfolio;
+      const { portfolio, ...rest } = values;
+      props.register(rest);
+    } else {
+      props.register(values);
     }
-    props.register(values);
   },
 })(SignUpForm);
 

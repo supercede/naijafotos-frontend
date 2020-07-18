@@ -27,13 +27,15 @@ function login(email, password) {
 
 function logout() {
   // remove user from local storage to log user out
-  localStorage.removeItem('user');
+  // localStorage.removeItem('user');
+  clearToken();
+  clearUser();
 
   const requestOptions = {
     method: 'POST',
   };
 
-  return fetch(`${baseURL}auth/logout`, requestOptions).then(handleResponse);
+  return fetch(`${baseURL}auth/logout`, requestOptions);
 }
 
 // function getAll() {
@@ -95,4 +97,12 @@ function saveUser(user) {
 
 function saveToken(token) {
   localStorage.setItem('token', token);
+}
+
+function clearUser() {
+  localStorage.removeItem('user');
+}
+
+function clearToken() {
+  localStorage.removeItem('token');
 }

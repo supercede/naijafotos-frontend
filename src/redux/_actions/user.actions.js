@@ -38,7 +38,8 @@ function login({ email, password }) {
 
 function logout() {
   userService.logout();
-  return { type: userConstants.LOGOUT };
+  window.location.href = '/';
+  return { type: userConstants.USERS_LOGOUT };
 }
 
 function register(user) {
@@ -47,9 +48,9 @@ function register(user) {
 
     userService.register(user).then(
       (user) => {
-        dispatch(success());
-        history.push('/login');
+        dispatch(success(user));
         dispatch(alertActions.success('Registration successful'));
+        history.push('/');
       },
       (error) => {
         dispatch(failure(error));

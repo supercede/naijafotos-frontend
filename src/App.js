@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
-// import Header from './components/header/header.component';
 import { connect } from 'react-redux';
 import Homepage from './pages/Homepage/homepage.component';
 import Authpage from './pages/Authpage/authpage.component';
@@ -43,6 +42,14 @@ class App extends Component {
             <Route
               path='/signin'
               component={() => <Authpage focus='sign-in' />}
+            />
+            <Route
+              path='/logout'
+              component={(props) => {
+                console.log(props);
+                // props.logout();
+                return <Homepage {...props} />;
+              }}
             />
             <Route path='/upload' component={() => <ImageUploadPage />} />
             <Route path='/profile' component={() => <ProfilePage />} />

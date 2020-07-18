@@ -1,12 +1,16 @@
 import React from 'react';
 import { withFormik, Form } from 'formik';
 import { Button, Row } from 'reactstrap';
+import { connect } from 'react-redux';
 import SocialButtons from '../socialBtns/socialBtns.component';
 import FormControl from '../../shared/formControl/form-row.component';
 import YupSignUpValidation from '../../shared/yupValidation/yupValidation';
 import './signup.style.scss';
 
-function SignUpForm({ errors, touched, isSubmitting }) {
+import { userActions } from '../../../redux/_actions';
+
+function SignUpForm({ errors, touched, isSubmitting, ...props }) {
+  console.log(props);
   return (
     <div className=''>
       <h2 className='text-center'>Get a free Account</h2>
@@ -78,7 +82,7 @@ function SignUpForm({ errors, touched, isSubmitting }) {
   );
 }
 
-const SignUp = withFormik({
+const EnhancedSignUpForm = withFormik({
   mapPropsToValues() {
     return {
       name: '',
@@ -90,9 +94,25 @@ const SignUp = withFormik({
     };
   },
   validationSchema: YupSignUpValidation('signup'),
-  handleSubmit(values) {
-    console.log(values);
+  handleSubmit(values, { props }) {
+    if (values.portfolio === '') {
+      const { portfolio, ...rest } = values;
+      props.register(rest);
+    } else {
+      props.register(values);
+    }
   },
 })(SignUpForm);
+
+const mapState = (state) => {
+  const { registering } = state.signupReducer;
+  return { registering };
+};
+
+const actionCreator = {
+  register: userActions.register,
+};
+
+const SignUp = connect(mapState, actionCreator)(EnhancedSignUpForm);
 
 export default SignUp;

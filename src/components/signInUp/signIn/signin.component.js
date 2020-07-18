@@ -4,9 +4,12 @@ import { withFormik, Form } from 'formik';
 import { Button, Row } from 'reactstrap';
 import SocialButtons from '../socialBtns/socialBtns.component';
 import FormControl from '../../shared/formControl/form-row.component';
+import { userActions } from '../../../redux/_actions';
 import './signin.style.scss';
+import { connect } from 'react-redux';
 
-function SignInForm({ errors, touched, isSubmitting }) {
+function SignInForm({ errors, touched, isSubmitting, ...props }) {
+  console.log(props);
   return (
     <div className=''>
       <h2 className='text-center'>Welcome Back</h2>
@@ -41,7 +44,7 @@ function SignInForm({ errors, touched, isSubmitting }) {
   );
 }
 
-const SignIn = withFormik({
+const EnhancedSignInForm = withFormik({
   mapPropsToValues() {
     return { email: '', password: '' };
   },
@@ -52,9 +55,21 @@ const SignIn = withFormik({
       .max(40, 'Password cannot be more than 40 letters')
       .required(),
   }),
-  handleSubmit(values) {
+  handleSubmit(values, { props }) {
     console.log(values);
+    props.login(values);
   },
 })(SignInForm);
+
+const mapState = (state) => {
+  const { loggingIn } = state.authReducer;
+  return { loggingIn };
+};
+
+const actionCreator = {
+  login: userActions.login,
+};
+
+const SignIn = connect(mapState, actionCreator)(EnhancedSignInForm);
 
 export default SignIn;

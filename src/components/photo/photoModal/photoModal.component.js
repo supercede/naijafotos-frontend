@@ -7,7 +7,9 @@ import { images } from '../photos';
 import './photoModal.style.scss';
 
 function PhotoModal(props) {
-  const { img } = props;
+  console.log(props);
+  
+  // const { img } = props;
   const { id } = useParams();
 
   const getPhoto = (id) => images.find((img) => img._id === id);
